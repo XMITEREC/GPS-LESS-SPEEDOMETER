@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f3f3f3;
+  color: #333;
+}
+
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.speed-display {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+#speed-value {
+  font-size: 3em;
+  margin-right: 0.25em;
+}
+
+.speed-unit {
+  font-size: 1.2em;
+}
+
+button {
+  margin: 1rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+canvas {
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+
+.info {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 15px;
+}

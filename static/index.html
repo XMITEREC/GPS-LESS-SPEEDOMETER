@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalman Fusion Speedometer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <h1>Kalman Fusion Speedometer</h1>
+
+    <div class="speed-display">
+      <div id="speed-value">0.0</div>
+      <div class="speed-unit">m/s</div>
+    </div>
+
+    <button id="startBtn">Enable Motion Sensors</button>
+
+    <canvas id="speedChart"></canvas>
+
+    <div class="info">
+      This project demonstrates accelerometer + gyroscope sensor fusion with a simplified Kalman/Complementary approach.  
+      The backend performs orientation compensation and gravity removal to refine speed estimates.  
+      If offline, the app uses a simpler client-side approach.  
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
