@@ -1,5 +1,4 @@
 Flask==2.2.5
 gunicorn==20.1.0
-# If you use advanced libraries:
-filterpy==1.4.5
+tensorflow==2.10.0
 numpy==1.23.5

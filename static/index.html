@@ -2,30 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kalman Fusion Speedometer</title>
+  <title>AI Speedometer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CSS (CDN). Remove if you prefer local tailwind.min.css -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.7/dist/tailwind.min.css" rel="stylesheet">
+
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="app-container">
-    <h1>Kalman Fusion Speedometer</h1>
+<body class="bg-gray-100 relative overflow-hidden">
+  <!-- Neural Particle Background -->
+  <canvas id="neuralBG" class="absolute top-0 left-0 w-full h-full opacity-40 z-0"></canvas>
 
-    <div class="speed-display">
-      <div id="speed-value">0.0</div>
-      <div class="speed-unit">m/s</div>
+  <!-- Main Container -->
+  <div class="flex flex-col items-center justify-center min-h-screen relative z-10 px-4">
+
+    <!-- Logo -->
+    <img src="./assets/front.png" alt="Logo" class="h-24 mb-4">
+
+    <!-- Title -->
+    <h1 class="text-3xl font-bold text-gray-800 mb-2">AI-Powered Speedometer</h1>
+
+    <!-- Speed Display -->
+    <div class="flex items-baseline text-4xl font-semibold mb-6">
+      <div id="speed-value" class="mr-2">0.0</div>
+      <div class="text-lg">m/s</div>
     </div>
 
-    <button id="startBtn">Enable Motion Sensors</button>
+    <!-- Mode Display -->
+    <div id="modeDisplay" class="text-xl font-medium text-indigo-600 mb-6">Mode: --</div>
 
-    <canvas id="speedChart"></canvas>
+    <!-- Enable Motion Sensors Button -->
+    <button id="startBtn" 
+            class="px-6 py-3 bg-blue-600 text-white rounded-full shadow-lg transform transition hover:scale-105 active:scale-95 mb-6">
+      Enable Motion Sensors
+    </button>
 
-    <div class="info">
-      This project demonstrates accelerometer + gyroscope sensor fusion with a simplified Kalman/Complementary approach.  
-      The backend performs orientation compensation and gravity removal to refine speed estimates.  
-      If offline, the app uses a simpler client-side approach.  
+    <!-- Chart Container -->
+    <div class="w-full max-w-2xl p-4 bg-white rounded-3xl shadow-lg">
+      <canvas id="speedChart" class="w-full h-64"></canvas>
     </div>
+
+    <!-- Info Paragraph -->
+    <p class="text-sm text-gray-600 mt-4 max-w-2xl text-center">
+      This application uses a CNN for user mode classification (walking, running, driving, etc.) 
+      and a Kalman/Complementary filter for orientation+gravity compensation to deliver real-time speed. 
+      If offline, it falls back to a simpler client-side approach.
+    </p>
+    <img src="./assets/footer.png" alt="Logo" class="h-24 mb-4">
   </div>
+
+  <!-- Main Scripts -->
   <script src="script.js"></script>
+  <script src="./assets/neural-bg.js"></script>
 </body>
 </html>
